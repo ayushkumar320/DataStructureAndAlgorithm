@@ -16,7 +16,7 @@ double taylorSeries(int x, int n) {
   }
 }
 
-// Using Horner's Rule
+// Using Horner's Rule for loop
 double hornerTaylor(int x, int n) {
   double s = 1;
   for (; n > 0; n--) {
@@ -25,9 +25,16 @@ double hornerTaylor(int x, int n) {
   return s;
 }
 
+double recursiveHorner(int x, int n) {
+  static double s = 1;
+  if (n == 0) return s;
+  s = 1 + (((double)x / n) * s);
+  return recursiveHorner(x, n - 1);
+}
+
 int main() {
   // double res = taylorSeries(5, 30);
-  double res = hornerTaylor(5, 30);
+  double res = recursiveHorner(5, 30);
   cout << res;
   return 0;
 }

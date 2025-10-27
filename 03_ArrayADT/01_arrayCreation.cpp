@@ -17,6 +17,21 @@ void Display(struct Array arr) {
   cout << endl;
 }
 
+void Append(struct Array *arr, int x) {
+  if(arr->length < arr->size) {
+    arr->A[arr->length++] = x;
+  }
+}
+
+void Insert(struct Array *arr, int index, int x) {
+  if(index >=0 && index <= arr->length && arr->length < arr->size) {
+    for(int i = arr->length; i > index; i--) {
+      arr->A[i] = arr->A[i - 1];
+    }
+    arr->A[index] = x;
+    arr->length++;
+  }
+}
 
 int main() {
   // Creating an array of size 10
@@ -47,6 +62,15 @@ int main() {
 
   cout << "Elements in array are\n";
   Display(arr1);
+  Append(&arr1, 10);
+  cout << "Elements in array after appending 10\n";
+  Display(arr1);
+
+  Insert(&arr1, 2, 15);
+  cout << "Elements in array after inserting 15 at index 2\n";
+  Display(arr1);
+  
+  delete[] arr1.A;
 
   return 0;
 }

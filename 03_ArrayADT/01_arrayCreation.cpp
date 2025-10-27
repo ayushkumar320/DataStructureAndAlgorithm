@@ -33,6 +33,15 @@ void Insert(struct Array *arr, int index, int x) {
   }
 }
 
+void Delete(struct Array *arr, int index) {
+  if(index >=0 && index < arr->length) {
+    for(int i = index; i < arr->length - 1; i++) {
+      arr->A[i] = arr->A[i + 1];
+    }
+    arr->length--;
+  }
+}
+
 int main() {
   // Creating an array of size 10
   // 1. Static Array in Stack Memory
@@ -69,7 +78,10 @@ int main() {
   Insert(&arr1, 2, 15);
   cout << "Elements in array after inserting 15 at index 2\n";
   Display(arr1);
-  
+
+  Delete(&arr1, 3);
+  cout << "Elements in array after deleting element at index 3\n";
+  Display(arr1);
   delete[] arr1.A;
 
   return 0;

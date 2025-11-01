@@ -15,10 +15,19 @@ bool checkDuplicate(vector<int> &nums, int k) {
 }
 
 // Betetr complexity using hash maps
-
-bool checkDuplicateHash(vector<int> &nums, int k) {
-  unordered_map<int, int> hash;`
-}
+bool checkDuplicateOptimized(vector<int> &nums, int k) {
+  unordered_map<int, int> indexMap; // Map to store the last index of each element
+  for(int i = 0; i < nums.size(); i++) {
+    if(indexMap.find(nums[i]) != indexMap.end()) {
+      // Element found in map, check the index difference
+      if(i - indexMap[nums[i]] <= k) {
+        return true;
+      }
+    }
+    // Update the last index of the element
+    indexMap[nums[i]] = i;
+  }
+  return false;
 
 int main() {
   vector<int> nums = {1, 2, 3, 1, 2, 3};

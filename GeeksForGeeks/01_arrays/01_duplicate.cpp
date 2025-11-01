@@ -28,6 +28,7 @@ bool checkDuplicateOptimized(vector<int> &nums, int k) {
     indexMap[nums[i]] = i;
   }
   return false;
+}
 
 int main() {
   vector<int> nums = {1, 2, 3, 1, 2, 3};

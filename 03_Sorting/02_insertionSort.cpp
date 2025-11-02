@@ -12,7 +12,7 @@ void insertionSort(vector<int> &nums) {
     x = nums[i];
     while(j > -1 && nums[j] > x) {
       nums[j+1] = nums[j];
-      j--;
+      j--; // This line checks for previous element on left side whether it is greater than x, if it is then shift it to right
     }
     nums[j+1] = x;
   }

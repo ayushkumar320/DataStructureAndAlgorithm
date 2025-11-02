@@ -5,12 +5,12 @@ vector<int> getMinMax(vector<int> &arr) {
   vector<int> ans;
   int minNum = INT_MAX;
   int maxNum = INT_MIN;
-  for(int i = 0; i < nums.size(); i++) {
-    if (nums[i] > maxNum) {
-      maxNum = nums[i];
+  for(int i = 0; i < arr.size(); i++) {
+    if (arr[i] > maxNum) {
+      maxNum = arr[i];
     } 
-    if (nums[i] < minNum) {
-      minNum = nums[i];
+    if (arr[i] < minNum) {
+      minNum = arr[i];
     }
   }
   return ans;
